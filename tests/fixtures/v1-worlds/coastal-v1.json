@@ -1,0 +1,35 @@
+{
+  "label": "V0.1 coastal creative world with a placed plank and player state",
+  "world": {
+    "id": "fixture-v1-coastal",
+    "name": "V0.1 Coastal",
+    "seed": "voxelcraft-demo",
+    "createdAt": 1760000000000,
+    "lastPlayed": 1760003600000,
+    "player": {
+      "x": 8.5,
+      "y": 54.00001,
+      "z": 16.5,
+      "yaw": -2.748893571891069,
+      "pitch": -0.08
+    },
+    "hotbar": [1, 2, 3, 4, 5, 6, 9, 10, 11],
+    "selectedSlot": 6,
+    "timeOfDay": 0.31,
+    "renderDistance": 4,
+    "gameMode": "creative",
+    "version": 1
+  },
+  "chunkEdits": [
+    {
+      "id": "fixture-v1-coastal:0,1",
+      "worldId": "fixture-v1-coastal",
+      "cx": 0,
+      "cz": 1,
+      "edits": {
+        "1299": 9,
+        "1300": 11
+      }
+    }
+  ]
+}
