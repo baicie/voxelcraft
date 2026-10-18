@@ -32,6 +32,13 @@ npm run build
 npm run preview
 ```
 
+### 部署
+
+- Netlify 配置：[netlify.toml](netlify.toml)
+- 手动导入、生产冒烟、缓存与 IndexedDB 域名隔离说明：[docs/deployment.md](docs/deployment.md)
+- 质量门禁：`npm run check:deploy`（typecheck + 单元测试 + 生产构建）
+- 当前状态：Netlify 站点尚未创建；本地生产构建与 `vite preview` 冒烟已通过，线上 URL 待仓库所有者完成 GitHub App 授权后生成。
+
 ## 模式
 
 创建世界时可选：
@@ -165,6 +172,7 @@ npm run typecheck   # TypeScript strict
 npm test            # 85 个 Vitest 单元测试
 npm run build       # tsc + Vite production build
 npm run test:e2e    # Playwright，3 个浏览器用例
+npm run check:deploy # Netlify 使用的 typecheck + unit + build 门禁
 npm run verify      # typecheck + unit + build
 ```
 

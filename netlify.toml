@@ -1,0 +1,28 @@
+# VoxelCraft — Netlify static build
+# The site is a single Vite entry with no History API routes, so no SPA
+# fallback is required. Netlify deploys dist/ atomically per build.
+
+[build]
+  command = "npm run check:deploy"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Vite emits content-hashed JS/CSS and the bundled Chunk Worker under /assets.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Keep the entry document revalidated so it always points at the current build.
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "no-cache"

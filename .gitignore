@@ -3,7 +3,12 @@ dist/
 artifacts/
 test-results/
 playwright-report/
+coverage/
+.netlify/
 .vite/
+.env
+.env.*
+!.env.example
 *.local
 *.log
 *.zip
