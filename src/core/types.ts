@@ -1,0 +1,16 @@
+export const CHUNK_SIZE = 16;
+export const WORLD_HEIGHT = 80;
+export const SEA_LEVEL = 27;
+export type Vec3 = { x: number; y: number; z: number };
+export type GameMode = 'survival' | 'creative';
+export type BiomeId = 'ocean' | 'plains' | 'forest' | 'desert' | 'mountains' | 'snow' | 'swamp' | 'coast';
+export type ToolType = 'pickaxe' | 'axe' | 'shovel' | 'sword' | 'none';
+export type Stack = { id: string; count: number; durability?: number };
+export type FurnaceState = { input: Stack | null; fuel: Stack | null; output: Stack | null; burn: number; burnMax: number; progress: number };
+export type WorldMetadata = { id: string; name: string; seed: string; mode: GameMode; createdAt: number; updatedAt: number; version: number };
+export type PlayerSave = { position: Vec3; yaw: number; pitch: number; health: number; hunger: number; oxygen: number; time: number; inventory: (Stack | null)[]; selected: number };
+export type WorldSave = { schema: 2; generator: number; metadata: WorldMetadata; player: PlayerSave; edits: Record<string, number>; furnaces: Record<string, FurnaceState>; drops: { id: string; count: number; position: Vec3; age: number }[] };
+export type MeshArrays = { positions: Float32Array; normals: Float32Array; uvs: Float32Array; colors: Float32Array; indices: Uint32Array };
+export type ChunkPayload = { cx: number; cz: number; voxels: Uint8Array; biomes: Uint8Array; edits: Record<string, number> };
+export type WorkerRequest = { type: 'generate'; id: number; epoch: number; cx: number; cz: number; seed: number; edits: Record<string, number> } | { type: 'mesh'; id: number; epoch: number; cx: number; cz: number; voxels: Uint8Array; neighbors: Record<string, Uint8Array> };
+export type WorkerResponse = { type: 'generated'; id: number; epoch: number; payload: ChunkPayload } | { type: 'meshed'; id: number; epoch: number; cx: number; cz: number; opaque: MeshArrays; water: MeshArrays; buildMs: number } | { type: 'error'; id: number; epoch: number; message: string };
