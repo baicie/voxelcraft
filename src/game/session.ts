@@ -185,7 +185,8 @@ export class GameSession {
       onSaveExit: () => { void this.save().then(() => this.options.onExitRequested()).catch(error => this.saveError(error)); },
       onReturnMenu: () => { void this.save().then(() => this.options.onExitRequested()).catch(error => this.saveError(error)); },
       onSettings: values => {
-        this.options.settings = values; this.audio.setVolume(values.volume); this.audio.setMuted(values.muted);
+        Object.assign(this.options.settings, values);
+        this.audio.setVolume(values.volume); this.audio.setMuted(values.muted);
         void this.storage.setSetting('settings', values).catch(() => this.ui.toast('Settings could not be saved.', 'error'));
       },
       onInventorySlot: (source, index, button, shift, x, y) => this.inventorySlot(source, index, button, shift, x, y),
@@ -498,7 +499,7 @@ export class GameSession {
     this.swing = Math.max(0, this.swing - dt * 5);
     this.target = this.currentTarget();
     if (this.target) {
-      this.highlight.visible = true;
+      this.highlight.visible = this.isLocked;
       this.highlight.position.set(this.target.x + .5, this.target.y + .5, this.target.z + .5);
     } else { this.highlight.visible = false; this.miningProgress = 0; }
     if (!this.leftHeld || !this.target || this.metadata.mode === 'creative') {

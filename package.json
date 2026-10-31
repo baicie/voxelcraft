@@ -1,7 +1,7 @@
 {
   "name": "voxelcraft",
   "private": true,
-  "version": "0.2.0",
+  "version": "3.1.0",
   "type": "module",
   "description": "A modular Minecraft-inspired voxel sandbox with a survival crafting loop, built with Three.js and TypeScript.",
   "engines": {

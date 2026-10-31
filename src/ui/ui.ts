@@ -277,6 +277,9 @@ export class UI {
 
   showMain(worlds: WorldSummary[]) {
     this.hideAll();
+    this.hideSaving();
+    this.toastEl.className = '';
+    this.main.remove();
     this.hud.classList.add('hidden'); this.debug.classList.add('hidden');
     const el = document.createElement('section'); el.className = 'screen main-menu'; el.id = 'main-menu'; el.dataset.testid = 'main-menu';
     const cards = worlds.length ? worlds.map(world => `<article class="world-card" data-world-id="${esc(world.id)}">

@@ -174,7 +174,7 @@ export class ChunkRenderer {
     if (opaque.indices.length) {
       const mesh = new THREE.Mesh(this.geometry(opaque), this.opaqueMaterial);
       mesh.position.set(cx * CHUNK_SIZE, 0, cz * CHUNK_SIZE);
-      mesh.castShadow = true;
+      mesh.castShadow = false;
       mesh.receiveShadow = true;
       mesh.matrixAutoUpdate = false;
       mesh.updateMatrix();

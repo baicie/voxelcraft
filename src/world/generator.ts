@@ -160,7 +160,7 @@ export function findSpawn(seed: number): { x: number; y: number; z: number; yaw?
         const treeColumn = columnAt(seed, tx, tz);
         if (treeColumn.biome !== 2 || treeColumn.height <= SEA_LEVEL) continue;
         if (hash3(seed + 127, cellX + ox, cellZ + oz) >= .55) continue;
-        const sx = tx + 3, sz = tz + 1;
+        const sx = tx + 5, sz = tz + 2;
         const spawnColumn = columnAt(seed, sx, sz);
         if (spawnColumn.height <= SEA_LEVEL || spawnColumn.height > 50) continue;
         const yaw = Math.atan2(-(tx + .5 - (sx + .5)), -(tz + .5 - (sz + .5)));

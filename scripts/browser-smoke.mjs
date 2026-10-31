@@ -5,7 +5,7 @@ const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
 const errors = [];
 page.on('pageerror', error => { errors.push(error.stack || error.message); console.log('PAGEERROR', error.message); });
 page.on('console', message => { if (message.type() === 'error') console.log('CONSOLE', message.text()); });
-await page.goto('http://127.0.0.1:4179/', { waitUntil: 'domcontentloaded', timeout: 60000 });
+await page.goto('http://127.0.0.1:4180/', { waitUntil: 'domcontentloaded', timeout: 60000 });
 await mkdir('docs/benchmarks/k3.1-pro/screenshots', { recursive: true });
 await page.screenshot({ path: 'docs/benchmarks/k3.1-pro/screenshots/tmp-menu.png' });
 console.log('title', await page.title());

@@ -177,6 +177,8 @@ export class VoxelCraftApp {
       inventory: () => session?.inventory.slots.map(s => s ? { ...s } : null),
       position: () => session ? { ...session.player.position } : null,
       chunks: () => session?.world.chunks.size,
+      blockAt: (x: number, y: number, z: number) => session?.world.getBlock(x, y, z) ?? null,
+      selected: () => session?.inventory.slots[0] ?? null,
     };
   }
 
